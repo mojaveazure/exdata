@@ -1,0 +1,25 @@
+Package: exdata
+Title: Document Code for Generating Datasets
+Version: 0.0.0.9000
+Authors@R: c(
+  person(given = "Paul", family = "Hoffman", role = c("aut", "cre"), email = "phoffman@nygenome.org", comment = c(ORCID = "0000-0002-7693-8957"))
+  )
+Description: Documenting how a dataset was generated increases reproducibility.
+  In addition, documentation for dataset generation can serve as a template for
+  people to create their own datasets in a similar structure, serving as a way
+  to bootstrap new analyses. R packages often use the data-raw directory to 
+  create datasets, but do not have an easy mechanism for importing those creation
+  steps into dataset documentation. exdata provides a new roxygen2 tag to
+  automatically copy over the dataset generation code from the scripts that
+  create the dataset into the documentation for the dataset.
+URL: https://github.com/mojaveazure/exdata
+BugReports: https://github.com/mojaveazure/exdata/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Imports:
+  roxygen2 (>= 7.1.1),
+  rprojroot
+Collate: 
+    'roxygen.R'

@@ -1,0 +1,80 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+```{r ghurl, echo=FALSE}
+ghurl <- function(x) {
+  x <- unlist(x = strsplit(x = x, split = ','))
+  x <- trimws(x = x)
+  x <- grep(pattern = "https://github.com", x = x, value = TRUE)[1]
+  return(unname(obj = x))
+}
+```
+
+```{r cran_cannoncial, echo=FALSE}
+cran.cannoncial <- "https://cran.r-project.org/package="
+```
+
+```{r load_description, echo=FALSE}
+description <- read.dcf(file = "DESCRIPTION")
+# Get package name
+pkg <- as.vector(x = description[, "Package"])
+# Get GitHub URL
+github.url <- ghurl(x = description[, "URL"])
+# Parse version
+pkg.version <- package_version(x = description[1, 'Version'])
+stage <- if (pkg.version >= package_version(x = "1.0.0")) {
+  "stable"
+} else if (pkg.version >= package_version(x = "0.1.0")) {
+  "maturing"
+} else {
+  "experimental"
+}
+color <- c("experimental" = "orange", "maturing" = "blue", "stable" = "brightgreen")[stage]
+```
+
+# `r pkg` v`r pkg.version`
+
+<!-- badges: start -->
+[![Lifecycle](https://img.shields.io/badge/lifecycle-`r stage`-`r color`.svg)](`r ""`)
+![Questioning](https://img.shields.io/badge/lifecycle-questioning-informational)
+[![CRAN/METACRAN](https://img.shields.io/cran/v/`r pkg`)](`r paste0(cran.cannoncial, pkg)`)
+[![dependencies](https://tinyverse.netlify.com/badge/`r pkg`)](`r paste0(cran.cannoncial, pkg)`)
+[![Downloads](https://cranlogs.r-pkg.org/badges/`r pkg`?color=brightgreen)](`r paste0(cran.cannoncial, pkg)`)
+<!-- badges: end -->
+
+#### `r description[1, "Title"]`
+
+```{r description, echo=FALSE, results="asis"}
+cat(gsub(pattern = "\n", replacement = "", x = description[, "Description"]))
+```
+
+
+## Installation
+
+You can install `r pkg` from GitHub with:
+
+```{r devel_install, echo=FALSE, results="asis"}
+github.base <- unlist(x = strsplit(x = github.url, split = "/"))
+github.base <- paste(rev(x = rev(x = github.base)[1:2]), collapse = "/")
+cat(
+  "```r",
+  "if (!requireNamespace('remotes', quietly = TRUE) {",
+  "  install.packages('remotes')",
+  "}",
+  paste0("remotes::install_github('", github.base,"')"),
+  "```",
+  sep = "\n"
+)
+```
