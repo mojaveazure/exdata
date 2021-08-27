@@ -9,7 +9,7 @@ Description: Documenting how a dataset was generated increases reproducibility.
   people to create their own datasets in a similar structure, serving as a way
   to bootstrap new analyses. R packages often use the data-raw directory to 
   create datasets, but do not have an easy mechanism for importing those creation
-  steps into dataset documentation. exdata provides a new roxygen2 tag to
+  steps into dataset documentation. {exdata} provides a new roxygen2 tag to
   automatically copy over the dataset generation code from the scripts that
   create the dataset into the documentation for the dataset.
 URL: https://github.com/mojaveazure/exdata

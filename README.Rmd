@@ -57,7 +57,7 @@ color <- c("experimental" = "orange", "maturing" = "blue", "stable" = "brightgre
 #### `r description[1, "Title"]`
 
 ```{r description, echo=FALSE, results="asis"}
-cat(gsub(pattern = "\n", replacement = "", x = description[, "Description"]))
+cat(gsub(pattern = "\n", replacement = " ", x = description[, "Description"]))
 ```
 
 

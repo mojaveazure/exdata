@@ -18,8 +18,8 @@
 \item{env}{Environment in which to evaluate code (if needed)}
 }
 \value{
-\code{roxy_tag_parse}: A \code{\link[roxygen2]{roxy_tag}} object with
-a value being a two-length list:
+\code{roxy_tag_parse}: A \code{\link[roxygen2]{roxy_tag}} object
+with a value being a two-length list:
 \describe{
  \item{\code{name}}{Name of the dataset}
  \item{\code{text}}{Code to generate the dataset}

@@ -14,14 +14,14 @@
 
 #### Document Code for Generating Datasets
 
-Documenting how a dataset was generated increases reproducibility.In
+Documenting how a dataset was generated increases reproducibility. In
 addition, documentation for dataset generation can serve as a template
-forpeople to create their own datasets in a similar structure, serving
-as a wayto bootstrap new analyses. R packages often use the data-raw
-directory tocreate datasets, but do not have an easy mechanism for
-importing those creationsteps into dataset documentation. exdata
-provides a new roxygen2 tag toautomatically copy over the dataset
-generation code from the scripts thatcreate the dataset into the
+for people to create their own datasets in a similar structure, serving
+as a way to bootstrap new analyses. R packages often use the data-raw
+directory to create datasets, but do not have an easy mechanism for
+importing those creation steps into dataset documentation. {exdata}
+provides a new roxygen2 tag to automatically copy over the dataset
+generation code from the scripts that create the dataset into the
 documentation for the dataset.
 
 ## Installation

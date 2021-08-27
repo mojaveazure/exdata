@@ -24,8 +24,8 @@ NULL
 #'
 NULL
 
-#' @return \code{roxy_tag_parse}: A \code{\link[roxygen2]{roxy_tag}} object with
-#' a value being a two-length list:
+#' @return \code{roxy_tag_parse}: A \code{\link[roxygen2]{roxy_tag}} object
+#' with a value being a two-length list:
 #' \describe{
 #'  \item{\code{name}}{Name of the dataset}
 #'  \item{\code{text}}{Code to generate the dataset}
@@ -143,7 +143,6 @@ parse_data_raw <- function(con) {
         no = '^end'
       )
       return(isTRUE(x = grepl(pattern = pattern, x = names(x = ind)[i - 1L])))
-      # return(isTRUE(x = names(x = ind)[i] == names(x = ind)[i - 1L]))
     },
     FUN.VALUE = logical(length = 1L)
   )
